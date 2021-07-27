@@ -10,8 +10,8 @@ RUN apt update && apt install -y \
 RUN wget https://mirrors.estointernet.in/apache/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz 
 RUN tar xzf hadoop-3.3.1.tar.gz
 
-ENV HADOOP_HOME=/hadoop-3.3.1 \
-    HADOOP_INSTALL=${HADOOP_HOME} \
+ENV HADOOP_HOME=/hadoop-3.3.1
+ENV HADOOP_INSTALL=${HADOOP_HOME} \
     HADOOP_MAPRED_HOME=${HADOOP_HOME} \
     HADOOP_COMMON_HOME=${HADOOP_HOME} \
     HADOOP_HDFS_HOME=${HADOOP_HOME} \
