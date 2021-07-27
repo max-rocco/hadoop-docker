@@ -17,4 +17,8 @@ jobs:
         run: docker pull sequenceiq/hadoop-docker:2.7.1
         
       - name: List containers
-        run: docker ls
+        run: docker ps
+        
+      - name: Run container
+        run: docker run -t sequenceiq/hadoop-docker:2.7.1 /etc/bootstrap.sh hadoop ls
+
