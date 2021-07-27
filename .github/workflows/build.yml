@@ -17,7 +17,7 @@ jobs:
         run: docker build . -t dkpk-hadoop:latest
 
       - name: Run
-        run: docker run --name dkpk-hadoop --rm -t
+        run: docker run --name dkpk-hadoop --rm -t echo "Started. 🔥"
         
       - name: Exec
         run: docker exec -t dkpk-hadoop hdfs namenode -format
