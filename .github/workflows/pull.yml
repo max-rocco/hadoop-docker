@@ -14,13 +14,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Pull the image
-        run: docker pull sequenceiq/hadoop-docker:2.7.1
+        run: docker build . -t dkpk-hadoop:latest
         
       - name: List containers
         run: docker ps
-        
-      - name: Run container
-        run: |
-          docker run -t sequenceiq/hadoop-docker:2.7.1 /etc/bootstrap.sh -bash
-          hadoop fs -ls
-          exit 13
+
+      - name: Run
+        run: docker run dkpk-hadoop -t hdfs namenode -format
