@@ -21,6 +21,6 @@ jobs:
         
       - name: Run container
         run: |
-          docker run -it sequenceiq/hadoop-docker:2.7.1 /etc/bootstrap.sh -bash
+          docker run -t sequenceiq/hadoop-docker:2.7.1 /etc/bootstrap.sh -bash
           hadoop fs -ls
           exit 13
