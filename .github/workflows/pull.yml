@@ -1,0 +1,20 @@
+name: Pull & Build
+
+on:
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Pull the image
+        run: docker pull sequenceiq/hadoop-docker:2.7.1
+        
+      - name: List containers
+        run: docker ls
