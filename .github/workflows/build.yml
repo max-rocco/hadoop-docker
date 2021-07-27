@@ -17,4 +17,4 @@ jobs:
         run: docker build . -t dkpk-hadoop:latest
 
       - name: Run
-        run: docker run -t dkpk-hadoop hdfs namenode -format
+        run: docker run --rm --name dkpk-hadoop hdfs namenode -format
