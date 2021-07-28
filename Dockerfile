@@ -9,6 +9,12 @@ RUN apt update && apt install -y \
     nano \
     && rm -rf /var/lib/apt/lists/*
 
+# Generate SSH key pair for password less login
+RUN ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa && \
+    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && \
+    chmod 0600 ~/.ssh/authorized_keys && \
+    ssh localhost
+
 # Start ssh localhost server
 RUN /etc/init.d/ssh start
 
