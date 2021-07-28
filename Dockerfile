@@ -1,6 +1,9 @@
 # Ubuntu as the base image
 FROM ubuntu:20.04
 
+# Set working directory to /home
+WORKDIR /
+
 # Install required dependencies
 RUN apt-get update && apt-get install -y \ 
     openjdk-8-jdk \
@@ -15,7 +18,7 @@ RUN ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa \
     && chmod 0600 ~/.ssh/authorized_keys
 
 # Start ssh localhost server
-RUN /etc/init.d/ssh start
+RUN etc/init.d/ssh start
 
 # Download Hadoop 3.3.1
 RUN wget https://mirrors.estointernet.in/apache/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz
