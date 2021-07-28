@@ -1,5 +1,7 @@
+# Ubuntu as the base image
 FROM ubuntu:20.04
 
+# Install required dependencies
 RUN apt update && apt install -y \ 
     openjdk-8-jdk \
     openssh-server \
@@ -7,10 +9,19 @@ RUN apt update && apt install -y \
     nano \
     && rm -rf /var/lib/apt/lists/*
 
-RUN wget https://mirrors.estointernet.in/apache/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz 
+# Start ssh localhost server
+RUN /etc/init.d/ssh start
+
+# Download Hadoop 3.3.1
+RUN wget https://mirrors.estointernet.in/apache/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz
+
+# Unzip the tar.gz
 RUN tar xzf hadoop-3.3.1.tar.gz
 
+# Hadoop home
 ENV HADOOP_HOME=/hadoop-3.3.1
+
+# Other Hadoop environment variables
 ENV HADOOP_INSTALL=${HADOOP_HOME} \
     HADOOP_MAPRED_HOME=${HADOOP_HOME} \
     HADOOP_COMMON_HOME=${HADOOP_HOME} \
@@ -19,8 +30,18 @@ ENV HADOOP_INSTALL=${HADOOP_HOME} \
     HADOOP_COMMON_LIB_NATIVE_DIR=${HADOOP_HOME}/lib/native \
     PATH=$PATH:${HADOOP_HOME}/sbin:${HADOOP_HOME}/bin \
     HADOOP_OPTS="-Djava.library.path=${HADOOP_HOME}/lib/nativ" \
-    JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 
+    # Java home
+    JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/ \
+
+    # For start-all.sh
+    HDFS_NAMENODE_USER="root" \
+    HDFS_DATANODE_USER="root" \
+    HDFS_SECONDARYNAMENODE_USER="root" \
+    YARN_RESOURCEMANAGER_USER="root" \
+    YARN_NODEMANAGER_USER="root"
+
+# Copy Hadoop configuration files to "etc" directory
 COPY /etc/* ${HADOOP_HOME}/etc/hadoop/
 
 CMD [ "bash" ]
