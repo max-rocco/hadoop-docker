@@ -2,7 +2,7 @@
 FROM ubuntu:20.04
 
 # Install required dependencies
-RUN apt update && apt install -y \ 
+RUN apt-get update && apt-get install -y \ 
     openjdk-8-jdk \
     openssh-server \
     openssh-client \
@@ -12,8 +12,7 @@ RUN apt update && apt install -y \
 # Generate SSH key pair for password less login
 RUN ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa \
     && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys \
-    && chmod 0600 ~/.ssh/authorized_keys \
-    && ssh localhost
+    && chmod 0600 ~/.ssh/authorized_keys
 
 # Start ssh localhost server
 RUN /etc/init.d/ssh start
