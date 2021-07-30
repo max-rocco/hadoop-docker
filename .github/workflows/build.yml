@@ -2,7 +2,7 @@ name: Build & Publish Docker image
 
 on:
   push:
-    branches: ['main']
+    branches: ['main', 'clean-hadoop-dir']
 
 env:
   REGISTRY: ghcr.io
