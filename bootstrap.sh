@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # 1. Start the SSH server
 /etc/init.d/ssh start
@@ -14,3 +14,6 @@ ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -t localhost << 
   export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 
 EOF
+
+# 3. Leave user with the shell
+/bin/bash
