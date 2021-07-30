@@ -15,5 +15,11 @@ ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -t localhost << 
 
 EOF
 
-# 3. Leave user with the shell
+# 3. Format "Namenode"
+hdfs namenode -format
+
+# 4. Start all Hadoop services
+$HADOOP_HOME/sbin/start-all.sh
+
+# 5. Leave user with the shell
 /bin/bash
