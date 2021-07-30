@@ -34,8 +34,8 @@ _(**Replace "\<Image ID\>" with the one that you noted in step 4.**)_
 2. ssh localhost
 3. source /etc/environment
 4. export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
-5. $HADOOP_HOME/sbin/start-all.sh
-6. hdfs namenode -format
+5. hdfs namenode -format
+6. $HADOOP_HOME/sbin/start-all.sh
 7. hadoop fs -mkdir /tmp
 8. hadoop fs -ls
 ```
