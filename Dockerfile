@@ -51,6 +51,9 @@ ENV HADOOP_INSTALL=${HADOOP_HOME} \
 RUN env | grep _ >> /etc/environment
 
 # Copy Hadoop configuration files to the "etc" directory
-COPY /etc/* ${HADOOP_HOME}/etc/hadoop/
+COPY ./etc/* ${HADOOP_HOME}/etc/hadoop/
 
-CMD [ "sh", "/etc/init.d/ssh", "start" ]
+# Copy bootstrap.sh
+COPY ./bootstrap.sh /
+
+CMD [ "bash", "./bootstrap.sh" ]
