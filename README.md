@@ -1,4 +1,4 @@
-# Apache Hadoop's Pseudo Distributed Mode using Docker 🐳
+# Apache Hadoop using Docker 🐳
 
 A Docker image to play around with [Apache Hadoop](https://hadoop.apache.org) in [Pseudo Distributed Mode](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html) (single cluster mode).
 
@@ -25,6 +25,10 @@ docker run -it ghcr.io/max-rocco/hadoop-docker:main
 _At this stage, the image will be booting up by executing all the required steps to start Hadoop._
 
 **From now on, you will be inside container's bash (terminal) and can start using Hadoop's filesystem commands.** 🚀
+
+<hr />
+
+[![Deploy Docker image](https://github.com/max-rocco/hadoop-docker/actions/workflows/build.yml/badge.svg)](https://github.com/max-rocco/hadoop-docker/actions/workflows/build.yml)
 
 <hr />
 
