@@ -1,9 +1,14 @@
-name: Build & Publish Docker image
+name: Deploy Docker image
 
 on:
   push:
     branches: ['main']
 
+    # Do not run when README gets updated
+    paths-ignore:
+      - '**/README.md'
+  
+  # Can trigger action manually
   workflow_dispatch:
 
 env:
@@ -11,8 +16,9 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build-and-push-image:
+  build-and-deploy-image:
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
       packages: write
