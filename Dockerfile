@@ -20,8 +20,11 @@ RUN ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa \
 # Download Hadoop 3.3.1
 RUN wget https://mirrors.estointernet.in/apache/hadoop/common/hadoop-3.3.1/hadoop-3.3.1.tar.gz
 
-# Unzip the tar.gz
+# Unzip the .tar.gz
 RUN tar xzf hadoop-3.3.1.tar.gz
+
+# Remove the .tar.gz file
+RUN rm --recursive --force ./hadoop-3.3.1.tar.gz
 
 # Hadoop home
 ENV HADOOP_HOME=/hadoop-3.3.1
