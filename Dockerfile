@@ -53,4 +53,4 @@ RUN env | grep _ >> /etc/environment
 # Copy Hadoop configuration files to the "etc" directory
 COPY /etc/* ${HADOOP_HOME}/etc/hadoop/
 
-CMD [ "sh", "/etc/init.d/ssh", "start" ]
+CMD [ "bash" ]
