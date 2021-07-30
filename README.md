@@ -37,7 +37,7 @@ _(**Replace "\<Image ID\>" with the one that you noted in step 4.**)_
 5. hdfs namenode -format
 6. $HADOOP_HOME/sbin/start-all.sh
 7. hadoop fs -mkdir /tmp
-8. hadoop fs -ls
+8. hadoop fs -ls /
 ```
 
 <hr />
