@@ -1,10 +1,10 @@
 ## Steps to get up & running:
 
-1. Create account on https://labs.play-with-docker.com & login.
+1. Create account on [Play with Docker](https://labs.play-with-docker.com) & login.
 2. Create an instance.
-3. Inside CLI, execute: docker pull ghcr.io/max-rocco/hadoop-docker:main. (Wait for it complete.)
-4. docker image ls & note down the Image ID.
-5. docker run -it <Image ID> bash
+3. `docker pull ghcr.io/max-rocco/hadoop-docker:main`.
+4. `docker image ls`. Note down the Image ID.
+5. `docker run -it <Image ID> bash`
 
 From now on, you will be inside container's bash (terminal).
 
