@@ -1,49 +1,37 @@
-# Hadoop (Psuedo Distributed Mode) in Docker
+# Apache Hadoop's Pseudo Distributed Mode using Docker 🐳
 
-## Follow the steps to get up & running:
+A Docker image to play around with [Apache Hadoop](https://hadoop.apache.org) in [Pseudo Distributed Mode](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html) (single cluster mode).
 
-1. Create account on [Docker Hub](https://hub.docker.com/signup).
-2. Login to [Play with Docker](https://labs.play-with-docker.com) using the same credentials.
-3. Create an instance.
-4. Now we need to pull the image from _Github Container Registry (GHCR)_. To do so, execute the following command:
+### Below are the steps to play around with this image using [Play with Docker](https://labs.play-with-docker.com).
+
+1. First of all, create an account on [Docker Hub](https://hub.docker.com/signup).
+2. Login to [Play with Docker](https://labs.play-with-docker.com) using the Docker Hub account you just created.
+3. You should see a green "Start" button, click on it to start a session. 
+4. Create an instance by clicking on "+ Add new instance" in the left pane, to create a VM.
+5. A new terminal should show up in the right pane. Here, we need to pull the Docker image from _Github Container Registry (GHCR)_. 
+To do so, execute:
 
 ```bash
 docker pull ghcr.io/max-rocco/hadoop-docker:main
 ```
 
-5. List images & note down the Image ID.
+6. After the image has been pulled into the VM, we need to start a new container & switch into it's terminal (mostly bash). 
+To do so, execute:
 
 ```bash
-docker image ls
+docker run -it ghcr.io/max-rocco/hadoop-docker:main
 ```
 
-6. We need to get inside container's terminal (mostly bash). To do so, execute the following command:
+_At this stage, the image will be booting up by executing all the required steps to start Hadoop._
 
-```bash
-docker run -it <Image ID> bash
-```
-
-_(**Replace "\<Image ID\>" with the one that you noted in step 4.**)_
+**From now on, you will be inside container's bash (terminal) and can start using Hadoop's filesystem commands.** 🚀
 
 <hr />
 
-**From now on, you will be inside container's bash (terminal).** Execute the following steps.
+<div align="center">
 
-```bash
-1. /etc/init.d/ssh start
-2. ssh localhost
-3. source /etc/environment
-4. export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
-5. hdfs namenode -format
-6. $HADOOP_HOME/sbin/start-all.sh
-7. hadoop fs -mkdir /tmp
-8. hadoop fs -ls /
-```
-
-<hr />
-
-<div align="right">
-
+```txt
 Max Rocco (c) 2021
+```
 
 </div>
