@@ -24,7 +24,7 @@ RUN wget https://mirrors.estointernet.in/apache/hadoop/common/hadoop-3.3.1/hadoo
 RUN tar xzf hadoop-3.3.1.tar.gz
 
 # Remove the .tar.gz file
-RUN rm --recursive --force ./hadoop-3.3.1.tar.gz
+RUN rm ./hadoop-3.3.1.tar.gz
 
 # Hadoop home
 ENV HADOOP_HOME=/hadoop-3.3.1
