@@ -54,6 +54,6 @@ RUN env | grep _ >> /etc/environment
 COPY /etc/* ${HADOOP_HOME}/etc/hadoop/
 
 # Copy bootstrap.sh
-COPY /bootstrap.sh /
+COPY ./bootstrap.sh /
 
-CMD [ "./bootstrap.sh" ]
+CMD [ "bash", "./bootstrap.sh" ]
